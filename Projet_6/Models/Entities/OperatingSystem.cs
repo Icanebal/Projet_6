@@ -4,6 +4,6 @@
     {
         public int OsId { get; set; }
         public string OsName { get; set; } = null!;
-        public ICollection<ProductVersionCompatibility> ProductVersionCompatibilities { get; set; } = new List<ProductVersionCompatibility>();
+        public ICollection<ProductVersionOperatingSystem> ProductVersionOperatingSystems { get; set; } = new List<ProductVersionOperatingSystem>();
     }
 }

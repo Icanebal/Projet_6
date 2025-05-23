@@ -1,8 +1,10 @@
 ﻿namespace Projet_6.Models.Entities
 {
-    public class ProductVersionCompatibility
+    public class ProductVersionOperatingSystem
     {
-        public int ProductVersionCompatibilityId { get; set; }
+        public int ProductVersionOperatingSystemId { get; set; }
+        public int ProductVersionId { get; set; }
+        public ProductVersion ProductVersion { get; set; } = null!;
         public int OsId { get; set; }
         public OperatingSystem OperatingSystem { get; set; } = null!;
         public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
