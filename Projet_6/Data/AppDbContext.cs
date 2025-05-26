@@ -13,6 +13,8 @@
         public DbSet<ProductVersionOperatingSystem> ProductVersionOperatingSystems { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<TicketStatus> TicketStatuses { get; set; }
+
+
     }
 
 }
