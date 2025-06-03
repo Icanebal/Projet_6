@@ -18,9 +18,13 @@ Ce projet consiste à modéliser une base de données pour la gestion de tickets
 
 ## Utilisation des requêtes LINQ
 
-- Toutes les requêtes principales du projet sont regroupées en une requête paramétrable via la méthode d’extension `ApplyFilters`.  
-- Pour chaque requête demandée, les paramètres sont ajustés. Il existe 10 formes de requêtes pour les 20 requêtes demandées.
-- Sur LINQPad, la methode d'extension "ApplyFliters" doit être ajoutée au fichier global "MyExtensions" local par un copier/coller.
+Toutes les requêtes principales du projet sont regroupées en une **seule requête paramétrable** grâce à la méthode d’extension `ApplyFilters`.  
+Pour chaque besoin métier, il suffit d’ajuster les paramètres de la requête (statut, produit, version, période, mots-clés).
+
+Sur les 20 requêtes demandées, seules **10 variantes paramétrables** suffisent pour tout couvrir, en changeant simplement les valeurs des paramètres.
+
+**Important :**  
+Pour exécuter ces requêtes dans LINQPad, la méthode d’extension `ApplyFilters` doit être ajoutée dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
 
 ## Pour restaurer la base de données
 
