@@ -25,7 +25,7 @@ Sur les 20 requêtes demandées, seules **10 variantes paramétrables** suffisen
 
 **Important :**  
 Pour exécuter ces requêtes dans LINQPad, les méthodes d’extension `ApplyFilters` et 'ToTicketDto' doivent être ajoutées dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
-On peut les récupérer dans le dossier 'MyExtensions' de **Dossier `/Projet_6_Queries/`**.
+On peut les récupérer dans le dossier 'MyExtensions' du **Dossier `/Projet_6_Queries/`**.
 
 ## Pour restaurer la base de données
 
