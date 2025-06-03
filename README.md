@@ -6,8 +6,9 @@ Ce projet consiste à modéliser une base de données pour la gestion de tickets
 
 ---
 
-## Structure du projet
+## Fichiers du projet
 
+- **Le diagramme entité–association du projet est disponible ici** : ![Modèle Entités-Associations](Projet_6_MEA/Arthur_Marteau_6_MEA_062025.png)
 - **Dossier `/Models/Entities/`** : Contient les entités EF Core (`Ticket`, `Product`, `OperatingSystem`, etc.)
 - **Dossier `/Extensions/` ou “My Extensions” dans LINQPad** : Contient les méthodes d’extension pour simplifier les requêtes LINQ (ex: `ApplyFilters`)
 - **Dossier `/`** : Contient la sauvegarde intégrale de la base de données (`aspnet-Projet_6_BackUp.bak`)
