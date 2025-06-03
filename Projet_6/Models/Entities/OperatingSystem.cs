@@ -2,8 +2,8 @@
 {
     public class OperatingSystem
     {
-        public int OsId { get; set; }
-        public string OsName { get; set; } = null!;
+        public int OperatingSystemId { get; set; }
+        public string OperatingSystemName { get; set; } = null!;
         public ICollection<ProductVersionOperatingSystem> ProductVersionOperatingSystems { get; set; } = new List<ProductVersionOperatingSystem>();
     }
 }
