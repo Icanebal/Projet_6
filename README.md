@@ -27,16 +27,29 @@ Sur les 20 requêtes demandées, seules **10 variantes paramétrables** suffisen
 Pour exécuter ces requêtes dans LINQPad, les méthodes d’extension `ApplyFilters` et 'ToTicketDto' doivent être ajoutées dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
 On peut les récupérer dans le dossier 'MyExtensions' du **Dossier `/Projet_6_Queries/`**.
 
-## Etapes à suivre
+## Étapes à suivre
 
-- Ouvrir SSMS > clic droit sur “Bases de données” > “Restaurer une base de données...”
+1. **Restaurer la base de données**
+   - Ouvrir SSMS
+   - Clic droit sur “Bases de données” > “Restaurer une base de données...”
+   - Sélectionner le fichier `.bak` fourni
+   - Suivre l’assistant de restauration
 
-- Sélectionner le fichier .bak fourni.
+2. **Cloner le repo et compiler le projet**
+   - Ouvrir le projet sous Visual Studio
+   - Compiler pour générer le fichier DLL du modèle
 
-- Suivre l’assistant de restauration.
-  
-- Cloner le repo et compiler le projet
+3. **Configurer LINQPad**
+   - Ouvrir une requête LINQPad
+   - Aller dans “Additional References” (`F4`) > Add / Browse :  
+     `\Projet_6\Projet_6\obj\Debug\net9.0\Projet_6.dll`
+   - Vérifier les “Namespace Imports” :  
+     - `Projet_6.Models.Dtos`
+     - `Projet_6.Models.Entities`
 
-- Relier les Additional References (F4) > Add / Browse : \Projet_6\Projet_6\obj\Debug\net9.0\Projet_6.dll
+4. **Ajouter les méthodes d’extension**
+   - Copier/coller les méthodes `ApplyFilters` et `ToTicketDto` dans le fichier global “My Extensions” (`Ctrl+Shift+Y`)
 
-- Verifier les namespaces dans Namespace Imports : "Projet_6.Models.Dtos" et "Projet_6.Models.Entities".
+5. **Ouvrir et exécuter les requêtes `.linq`** dans LINQPad
+
+
