@@ -24,7 +24,8 @@ Pour chaque besoin métier, il suffit d’ajuster les paramètres de la requête
 Sur les 20 requêtes demandées, seules **10 variantes paramétrables** suffisent pour tout couvrir, en changeant simplement les valeurs des paramètres.
 
 **Important :**  
-Pour exécuter ces requêtes dans LINQPad, la méthode d’extension `ApplyFilters` doit être ajoutée dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
+Pour exécuter ces requêtes dans LINQPad, les méthodes d’extension `ApplyFilters` et 'ToTicketDto' doivent être ajoutées dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
+On peut les récupérer dans le dossier 'MyExtensions' de **Dossier `/Projet_6_Queries/`**.
 
 ## Pour restaurer la base de données
 
