@@ -8,17 +8,18 @@ Ce projet consiste à modéliser une base de données pour la gestion de tickets
 
 ## Fichiers du projet
 
-- **Le diagramme entité–association du projet est disponible ici** : ![Modèle Entités-Associations](Projet_6_MEA/Arthur_Marteau_6_MEA_062025.png)
-- **Dossier `/Models/Entities/`** : Contient les entités EF Core (`Ticket`, `Product`, `OperatingSystem`, etc.)
-- **Dossier `/Extensions/` ou “My Extensions” dans LINQPad** : Contient les méthodes d’extension pour simplifier les requêtes LINQ (ex: `ApplyFilters`)
-- **Dossier `/`** : Contient la sauvegarde intégrale de la base de données (`aspnet-Projet_6_BackUp.bak`)
+- **Le diagramme entité–association du projet** : ![Modèle Entités-Associations](Projet_6_MEA/Arthur_Marteau_6_MEA_062025.png)
+- **Dossier `/Projet_6/Models/Entities/`** : Contient les entités EF Core (`Ticket`, `Product`, `OperatingSystem`, etc.)
+- **Dossier `/Projet_6/Data/`** : Contient l'AppDbContext qui initialise la bdd.
+- **Dossier `/Projet_6_Backup/`** : Contient toutes les requêtes LINQ optimisées + leur fichier MyExtensions.
+- **Dossier `/Projet_6_Backup/`** : Contient la sauvegarde intégrale de la base de données (`aspnet-Projet_6.bak`)
 
 ---
 
 ## Utilisation des requêtes LINQ
 
 Toutes les requêtes principales du projet sont regroupées en une requête paramétrable via la méthode d’extension `ApplyFilters`.  
-Il suffit de modifier les paramètres pour obtenir la plupart des cas d’usage métier.
+Il suffit de modifier les paramètres pour obtenir la plupart des cas d’usage métier. (cf. La documentation des requêtes de la base de données)
 
 ## Pour restaurer la base de données
 
