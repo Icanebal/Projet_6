@@ -17,26 +17,15 @@
 
 // Paramètres
 string statut = "resolved";
-string? produit = "Maître des Investissements";
-string? version = "1.2";
-DateTime? dateMin = new DateTime(2024, 01, 01);
-DateTime? dateMax = new DateTime(2024, 03, 01);
-string? motCle = "utilisateur";
+string produit = "Maître des Investissements";
+string version = "1.2";
+DateTime dateMin = new DateTime(2024, 01, 01);
+DateTime dateMax = new DateTime(2024, 03, 01);
+string motCle = "utilisateur";
 
 Tickets
     .ApplyFilters(statut, produit, version, dateMin, dateMax, motCle)
-    .Select(t => new
-    {
-        t.TicketId,
-        Produit = t.ProductVersionOperatingSystem.ProductVersion.Product.ProductName,
-        Version = t.ProductVersionOperatingSystem.ProductVersion.Number,
-        OS = t.ProductVersionOperatingSystem.OperatingSystem.OperatingSystemName,
-        t.CreationDate,
-        t.Issue,
-        t.ResolutionDate,
-        t.Resolution,
-        Statut = t.TicketStatus.Label
-    })
+    .ToTicketDto()
     .Dump();
 
 

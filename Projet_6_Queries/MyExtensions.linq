@@ -1,5 +1,6 @@
 <Query Kind="Program">
   <Reference Relative="..\..\..\source\repos\Icanebal\Projet_6\Projet_6\obj\Debug\net9.0\Projet_6.dll">&lt;UserProfile&gt;\source\repos\Icanebal\Projet_6\Projet_6\obj\Debug\net9.0\Projet_6.dll</Reference>
+  <Namespace>Projet_6.Models.Dtos</Namespace>
   <Namespace>Projet_6.Models.Entities</Namespace>
 </Query>
 
@@ -10,6 +11,22 @@ void Main()
 
 public static class MyExtensions
 {
+		public static IQueryable<TicketDto> ToTicketDto(this IQueryable<Ticket> query)
+{
+    return query.Select(t => new TicketDto
+    {
+        TicketId = t.TicketId,
+        Produit = t.ProductVersionOperatingSystem.ProductVersion.Product.ProductName,
+        Version = t.ProductVersionOperatingSystem.ProductVersion.Number,
+        OS = t.ProductVersionOperatingSystem.OperatingSystem.OperatingSystemName,
+        CreationDate = t.CreationDate,
+        Issue = t.Issue,
+        ResolutionDate = t.ResolutionDate,
+        Resolution = t.Resolution,
+        Statut = t.TicketStatus.Label
+    });
+}
+
 	    public static IQueryable<Ticket> ApplyFilters(
         this IQueryable<Ticket> query,
         string? statut = null,

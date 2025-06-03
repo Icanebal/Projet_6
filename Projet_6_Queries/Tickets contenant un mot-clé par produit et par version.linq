@@ -17,26 +17,13 @@
 
 // Paramètres
 string statut = "in_progress";
-string? produit = "Maître des Investissements";
-string? version = "1.3";
-DateTime? dateMin = null;
-DateTime? dateMax = null;
-string? motCle = "résultats";
+string produit = "Maître des Investissements";
+string version = "1.3";
+string motCle = "résultats";
 
 Tickets
-    .ApplyFilters(statut, produit, version, dateMin, dateMax, motCle)
-    .Select(t => new
-    {
-        t.TicketId,
-        Produit = t.ProductVersionOperatingSystem.ProductVersion.Product.ProductName,
-        Version = t.ProductVersionOperatingSystem.ProductVersion.Number,
-        OS = t.ProductVersionOperatingSystem.OperatingSystem.OperatingSystemName,
-        t.CreationDate,
-        t.Issue,
-        t.ResolutionDate,
-        t.Resolution,
-        Statut = t.TicketStatus.Label
-    })
+    .ApplyFilters(statut, produit, version, null, null, motCle)
+    .ToTicketDto()
     .Dump();
 
 

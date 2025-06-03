@@ -17,26 +17,12 @@
 
 // Paramètres
 string statut = "resolved";
-string? produit = "Planificateur d’Entraînement";
-string? version = "2.0";
-DateTime? dateMin = null;
-DateTime? dateMax = null;
-string? motCle = null;
+string produit = "Planificateur d’Entraînement";
+string version = "2.0";
 
 Tickets
-    .ApplyFilters(statut, produit, version, dateMin, dateMax, motCle)
-    .Select(t => new
-    {
-        t.TicketId,
-        Produit = t.ProductVersionOperatingSystem.ProductVersion.Product.ProductName,
-        Version = t.ProductVersionOperatingSystem.ProductVersion.Number,
-        OS = t.ProductVersionOperatingSystem.OperatingSystem.OperatingSystemName,
-        t.CreationDate,
-        t.Issue,
-        t.ResolutionDate,
-        t.Resolution,
-        Statut = t.TicketStatus.Label
-    })
+    .ApplyFilters(statut, produit, version, null, null, null)
+    .ToTicketDto()
     .Dump();
 
 
