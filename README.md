@@ -24,12 +24,32 @@ Pour chaque besoin métier, il suffit d’ajuster les paramètres de la requête
 Sur les 20 requêtes demandées, seules **10 variantes paramétrables** suffisent pour tout couvrir, en changeant simplement les valeurs des paramètres.
 
 **Important :**  
-Pour exécuter ces requêtes dans LINQPad, la méthode d’extension `ApplyFilters` doit être ajoutée dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
+Pour exécuter ces requêtes dans LINQPad, les méthodes d’extension `ApplyFilters` et 'ToTicketDto' doivent être ajoutées dans le fichier global `My Extensions` (accessible via Ctrl+Shift+Y dans LINQPad), par simple copier-coller.
+On peut les récupérer dans le dossier 'MyExtensions' du **Dossier `/Projet_6_Queries/`**.
 
-## Pour restaurer la base de données
+## Étapes à suivre
 
-- Ouvrir SSMS > clic droit sur “Bases de données” > “Restaurer une base de données...”
+1. **Restaurer la base de données**
+   - Ouvrir SSMS
+   - Clic droit sur “Bases de données” > “Restaurer une base de données...”
+   - Sélectionner le fichier `.bak` fourni
+   - Suivre l’assistant de restauration
 
-- Sélectionner le fichier .bak fourni.
+2. **Cloner le repo et compiler le projet**
+   - Ouvrir le projet sous Visual Studio
+   - Compiler pour générer le fichier DLL du modèle
 
-- Suivre l’assistant de restauration.
+3. **Configurer LINQPad**
+   - Ouvrir une requête LINQPad
+   - Aller dans “Additional References” (`F4`) > Add / Browse :  
+     `\Projet_6\Projet_6\obj\Debug\net9.0\Projet_6.dll`
+   - Vérifier les “Namespace Imports” :  
+     - `Projet_6.Models.Dtos`
+     - `Projet_6.Models.Entities`
+
+4. **Ajouter les méthodes d’extension**
+   - Copier/coller les méthodes `ApplyFilters` et `ToTicketDto` dans le fichier global “My Extensions” (`Ctrl+Shift+Y`)
+
+5. **Ouvrir et exécuter les requêtes `.linq`** dans LINQPad
+
+
