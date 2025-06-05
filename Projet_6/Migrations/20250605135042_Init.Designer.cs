@@ -12,7 +12,7 @@ using Projet_6.Data;
 namespace Projet_6.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250526150851_Init")]
+    [Migration("20250605135042_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -241,13 +241,13 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 2,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 4,
                             ProductVersionId = 1
                         },
                         new
                         {
                             ProductVersionOperatingSystemId = 3,
-                            OperatingSystemId = 1,
+                            OperatingSystemId = 4,
                             ProductVersionId = 2
                         },
                         new
@@ -307,7 +307,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 13,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 4
                         },
                         new
@@ -325,7 +325,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 16,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 5
                         },
                         new
@@ -337,13 +337,13 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 18,
-                            OperatingSystemId = 1,
+                            OperatingSystemId = 6,
                             ProductVersionId = 6
                         },
                         new
                         {
                             ProductVersionOperatingSystemId = 19,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 1,
                             ProductVersionId = 6
                         },
                         new
@@ -361,7 +361,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 22,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 7
                         },
                         new
@@ -373,13 +373,13 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 24,
-                            OperatingSystemId = 5,
+                            OperatingSystemId = 4,
                             ProductVersionId = 7
                         },
                         new
                         {
                             ProductVersionOperatingSystemId = 25,
-                            OperatingSystemId = 1,
+                            OperatingSystemId = 2,
                             ProductVersionId = 8
                         },
                         new
@@ -433,7 +433,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 34,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 10
                         },
                         new
@@ -457,7 +457,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 38,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 11
                         },
                         new
@@ -481,7 +481,7 @@ namespace Projet_6.Migrations
                         new
                         {
                             ProductVersionOperatingSystemId = 42,
-                            OperatingSystemId = 2,
+                            OperatingSystemId = 6,
                             ProductVersionId = 12
                         },
                         new
@@ -536,6 +536,92 @@ namespace Projet_6.Migrations
                     b.HasData(
                         new
                         {
+                            TicketId = 1,
+                            CreationDate = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Lors de la connexion à l’application, un message d’erreur \"token invalide\" s’affiche systématiquement après la saisie du mot de passe, même lorsque les identifiants sont corrects. Le problème semble apparaître uniquement après une mise à jour automatique de Windows.",
+                            ProductVersionOperatingSystemId = 24,
+                            Resolution = "Un conflit de cache a été identifié entre la version 2.1 de l’application et le stockage local de Windows. Une mise à jour a été déployée pour forcer le nettoyage du cache lors de l’ouverture de l’application. L’équipe de développement a également ajouté un bouton manuel \"Vider le cache\" dans les paramètres avancés.",
+                            ResolutionDate = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TicketStatusId = 2
+                        },
+                        new
+                        {
+                            TicketId = 2,
+                            CreationDate = new DateTime(2024, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Plusieurs utilisateurs ont signalé recevoir les notifications push en double pour un même événement, ce qui créait de la confusion et nuisait à l’expérience utilisateur. Par exemple, lorsqu’un rappel était programmé pour une tâche à 9h00, deux notifications identiques étaient affichées sur le téléphone à la même seconde.",
+                            ProductVersionOperatingSystemId = 44,
+                            Resolution = "Après investigation, l’anomalie provenait d’un problème de logique dans le service de notifications du serveur. Un même événement était traité deux fois à cause d’une condition mal formulée dans la file de traitement asynchrone. L’équipe technique a modifié l’algorithme de génération des envois afin de garantir l’unicité des messages par événement et utilisateur. Des tests automatisés ont également été ajoutés pour éviter toute régression future sur ce mécanisme.",
+                            ResolutionDate = new DateTime(2024, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TicketStatusId = 2
+                        },
+                        new
+                        {
+                            TicketId = 3,
+                            CreationDate = new DateTime(2024, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Lorsqu’un utilisateur se reconnecte à son compte, l’application oublie le thème sombre précédemment sélectionné et revient au thème clair.",
+                            ProductVersionOperatingSystemId = 38,
+                            Resolution = "Le paramètre d’apparence n’était pas correctement stocké dans la session utilisateur après une déconnexion. Le système a été mis à jour pour persister cette préférence dans la base de données et la recharger automatiquement à chaque connexion.",
+                            ResolutionDate = new DateTime(2024, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TicketStatusId = 2
+                        },
+                        new
+                        {
+                            TicketId = 4,
+                            CreationDate = new DateTime(2024, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Le bouton 'valider' reste grisé même après avoir rempli tous les champs du formulaire d'ajout d'investissement. L'utilisateur est bloqué et ne peut pas enregistrer ses données.",
+                            ProductVersionOperatingSystemId = 3,
+                            Resolution = "Une condition de validation trop stricte empêchait l'activation du bouton si le champ facultatif 'notes' restait vide. Le contrôle a été ajusté et le bouton est désormais activé dès que les champs obligatoires sont remplis.",
+                            ResolutionDate = new DateTime(2024, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TicketStatusId = 2
+                        },
+                        new
+                        {
+                            TicketId = 5,
+                            CreationDate = new DateTime(2024, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Le champ 'durée' dans le planificateur se réinitialise après validation d’un exercice, effaçant les données saisies.",
+                            ProductVersionOperatingSystemId = 32,
+                            Resolution = "",
+                            TicketStatusId = 1
+                        },
+                        new
+                        {
+                            TicketId = 6,
+                            CreationDate = new DateTime(2024, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "L’application se ferme inopinément dès que l’utilisateur passe en mode avion.",
+                            ProductVersionOperatingSystemId = 33,
+                            Resolution = "",
+                            TicketStatusId = 1
+                        },
+                        new
+                        {
+                            TicketId = 7,
+                            CreationDate = new DateTime(2024, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Lorsqu’un utilisateur tente de planifier une séance d'entraînement avec une durée personnalisée, l’heure de fin calculée automatiquement est incorrecte. Par exemple, en saisissant une durée de 45 minutes à partir de 14h30, l’heure de fin affichée est 14h00. Ce dysfonctionnement rend la planification peu fiable et génère des conflits dans l’agenda.",
+                            ProductVersionOperatingSystemId = 32,
+                            Resolution = "Une erreur dans le calcul de la durée provenait d’un décalage entre le fuseau horaire de l’appareil et l’heure système utilisée par l’application. L’équipe a corrigé la méthode de calcul pour prendre en compte l’heure locale réelle de l’utilisateur. Des tests ont été ajoutés pour vérifier la cohérence horaire sur plusieurs plateformes (iOS, Android, Web).",
+                            ResolutionDate = new DateTime(2024, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TicketStatusId = 2
+                        },
+                        new
+                        {
+                            TicketId = 8,
+                            CreationDate = new DateTime(2024, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Lorsqu’un utilisateur tente d’ajouter un événement personnalisé dans son programme hebdomadaire, le texte saisi dans le champ de description disparaît après validation, laissant l’événement sans intitulé. Ce bug rend la planification confuse et oblige l’utilisateur à saisir à nouveau les informations.",
+                            ProductVersionOperatingSystemId = 43,
+                            Resolution = "",
+                            TicketStatusId = 1
+                        },
+                        new
+                        {
+                            TicketId = 9,
+                            CreationDate = new DateTime(2024, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Sur certains appareils Windows Mobile, le clavier virtuel masque partiellement les champs du formulaire d’achat, empêchant l’utilisateur de visualiser correctement le montant saisi. Ce problème est particulièrement gênant sur les écrans de petite taille et peut entraîner des erreurs de saisie lors de l’exécution de transactions financières.",
+                            ProductVersionOperatingSystemId = 10,
+                            Resolution = "",
+                            TicketStatusId = 1
+                        },
+                        new
+                        {
                             TicketId = 10,
                             CreationDate = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Certains utilisateurs rapportent ne jamais recevoir l’e-mail de confirmation d’inscription, même après plusieurs tentatives.",
@@ -548,7 +634,7 @@ namespace Projet_6.Migrations
                             TicketId = 11,
                             CreationDate = new DateTime(2024, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Après la mise à jour vers la version 1.2, certains utilisateurs ne parviennent plus à synchroniser leur portefeuille avec le serveur. Une erreur générique « Connexion impossible » s’affiche sans détails, empêchant l’actualisation des données financières et bloquant l’utilisation de l’application en mode actif.",
-                            ProductVersionOperatingSystemId = 8,
+                            ProductVersionOperatingSystemId = 9,
                             Resolution = "Le bug était lié à une modification récente du protocole de chiffrement TLS utilisé par l’API. Les anciennes versions de Windows n’étaient pas compatibles avec le nouveau niveau de sécurité requis. Une mise à jour corrective a été déployée pour prendre en charge les configurations les plus courantes tout en maintenant un niveau de sécurité suffisant.",
                             ResolutionDate = new DateTime(2024, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -558,7 +644,7 @@ namespace Projet_6.Migrations
                             TicketId = 12,
                             CreationDate = new DateTime(2024, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Des erreurs d'arrondi apparaissent dans les totaux affichés après plusieurs opérations d’achat ou de vente.",
-                            ProductVersionOperatingSystemId = 16,
+                            ProductVersionOperatingSystemId = 17,
                             Resolution = "Après analyse du code côté client, il a été identifié que l'erreur provenait d'une gestion approximative des valeurs calculées en virgule flottante. Des ajustements ont été faits pour appliquer un arrondi au centime près, respectant les conventions financières standards.",
                             ResolutionDate = new DateTime(2024, 4, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -568,7 +654,7 @@ namespace Projet_6.Migrations
                             TicketId = 13,
                             CreationDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "La recherche d’actions spécifiques n’affiche aucun résultat même si le titre est bien coté.",
-                            ProductVersionOperatingSystemId = 20,
+                            ProductVersionOperatingSystemId = 16,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -577,7 +663,7 @@ namespace Projet_6.Migrations
                             TicketId = 14,
                             CreationDate = new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Lorsqu’un utilisateur termine une séance programmée, celle-ci n’apparaît pas dans le résumé quotidien de l’activité. Cela donne l’impression que l’effort fourni n’a pas été pris en compte.",
-                            ProductVersionOperatingSystemId = 35,
+                            ProductVersionOperatingSystemId = 36,
                             Resolution = "Le problème venait d’un déclencheur d’événement mal implémenté côté client, qui n’enregistrait pas la fin de séance si l’utilisateur quittait l’écran trop rapidement. L’équipe de développement a modifié le processus de validation pour que les données soient sauvegardées dès la fin de la minuterie, quelle que soit la navigation de l’utilisateur.",
                             ResolutionDate = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -587,7 +673,7 @@ namespace Projet_6.Migrations
                             TicketId = 15,
                             CreationDate = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Lorsque l’utilisateur planifie plusieurs séances pour la même journée, seule la première est visible dans le calendrier hebdomadaire. Cela rend difficile la gestion des doubles entraînements ou des variations de programme.",
-                            ProductVersionOperatingSystemId = 35,
+                            ProductVersionOperatingSystemId = 36,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -606,7 +692,7 @@ namespace Projet_6.Migrations
                             TicketId = 17,
                             CreationDate = new DateTime(2024, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Le simulateur de risque affiche des résultats incohérents lorsqu’un portefeuille contient plus de 10 valeurs.",
-                            ProductVersionOperatingSystemId = 15,
+                            ProductVersionOperatingSystemId = 10,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -615,7 +701,7 @@ namespace Projet_6.Migrations
                             TicketId = 18,
                             CreationDate = new DateTime(2024, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Les taux d'intérêt affichés dans les profils ne sont pas mis à jour malgré une connexion au serveur.",
-                            ProductVersionOperatingSystemId = 12,
+                            ProductVersionOperatingSystemId = 4,
                             Resolution = "Le moteur de rendu des graphiques n'était pas compatible avec les résolutions inférieures à 720p. Une refonte du système d'affichage adaptatif a été réalisée pour améliorer la compatibilité avec les petits écrans.",
                             ResolutionDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -625,7 +711,7 @@ namespace Projet_6.Migrations
                             TicketId = 19,
                             CreationDate = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Le mode tutoriel se relance à chaque ouverture de l'application même après avoir été désactivé.",
-                            ProductVersionOperatingSystemId = 19,
+                            ProductVersionOperatingSystemId = 16,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -634,7 +720,7 @@ namespace Projet_6.Migrations
                             TicketId = 20,
                             CreationDate = new DateTime(2024, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Les alertes programmées pour les plafonds ne se déclenchent pas lorsque l’application est en arrière-plan.",
-                            ProductVersionOperatingSystemId = 24,
+                            ProductVersionOperatingSystemId = 18,
                             Resolution = "Le système de sauvegarde n’envoyait pas les modifications en cas de perte temporaire de connexion. Un système de file d’attente a été mis en place pour garantir que les modifications soient bien enregistrées dès que la connexion est restaurée.",
                             ResolutionDate = new DateTime(2024, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -644,7 +730,7 @@ namespace Projet_6.Migrations
                             TicketId = 21,
                             CreationDate = new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Certaines actions s’affichent en double après l’opération d’un achat.",
-                            ProductVersionOperatingSystemId = 21,
+                            ProductVersionOperatingSystemId = 24,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -653,7 +739,7 @@ namespace Projet_6.Migrations
                             TicketId = 22,
                             CreationDate = new DateTime(2024, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Les citations motivationnelles du jour n’apparaissent pas dans l’interface d’accueil, laissant un espace vide censé motiver l’utilisateur.",
-                            ProductVersionOperatingSystemId = 40,
+                            ProductVersionOperatingSystemId = 38,
                             Resolution = "Le bug provenait d’une erreur dans le système de récupération des citations via l’API. Une mauvaise gestion des dates dans la requête empêchait l’affichage des contenus journaliers. L’équipe a corrigé la logique de sélection côté serveur pour renvoyer correctement une citation.",
                             ResolutionDate = new DateTime(2024, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -663,7 +749,7 @@ namespace Projet_6.Migrations
                             TicketId = 23,
                             CreationDate = new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Lorsqu’un utilisateur tente de modifier une position déjà ouverte, l’interface ne prend pas en compte les nouvelles valeurs saisies et affiche toujours les paramètres d’origine. Cela peut induire en erreur l’utilisateur sur le statut réel de ses ordres.",
-                            ProductVersionOperatingSystemId = 10,
+                            ProductVersionOperatingSystemId = 13,
                             Resolution = "Le système de mise à jour du portefeuille ne rafraîchissait pas les données après une modification partielle. L’équipe a corrigé cette anomalie en forçant une resynchronisation locale après chaque modification d’ordre. Des tests ont été ajoutés pour valider les cas d’édition multiples.",
                             ResolutionDate = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TicketStatusId = 2
@@ -673,7 +759,7 @@ namespace Projet_6.Migrations
                             TicketId = 24,
                             CreationDate = new DateTime(2024, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "Lors de la rédaction d’une note dans le journal émotionnel, un retour à la page d’accueil sans enregistrement automatique entraîne la perte totale du contenu rédigé.",
-                            ProductVersionOperatingSystemId = 38,
+                            ProductVersionOperatingSystemId = 40,
                             Resolution = "",
                             TicketStatusId = 1
                         },
@@ -682,7 +768,7 @@ namespace Projet_6.Migrations
                             TicketId = 25,
                             CreationDate = new DateTime(2024, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Issue = "La fonction 'journal émotionnel' ne sauvegarde pas les entrées si l’utilisateur ferme la page web trop rapidement.",
-                            ProductVersionOperatingSystemId = 37,
+                            ProductVersionOperatingSystemId = 43,
                             Resolution = "",
                             TicketStatusId = 1
                         });
